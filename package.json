@@ -5,7 +5,6 @@
   "author": "Howl Automation",
   "license": "See license",
   "description": "React version of rjxTurns",
-
   "dependencies": {
     "@emotion/cache": "11.10.8",
     "@emotion/react": "11.10.8",
@@ -34,10 +33,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -54,6 +50,7 @@
   "devDependencies": {
     "eslint": "8.39.0",
     "eslint-config-prettier": "8.8.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-prettier": "4.2.1",
