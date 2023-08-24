@@ -1,20 +1,8 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
+
+//assets
+import logo from "assets/images/logo-ct.png"
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -27,12 +15,16 @@ import MDBox from "components/MDBox";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
-// Authentication layout components
-import Footer from "layouts/authentication/components/Footer";
 
-function CoverLayout({ coverHeight, image, children }) {
+
+function CoverLayoutMonitor({ children }) {
   return (
     <PageLayout>
+      <DefaultNavbar
+        logoCompany={logo}
+        transparent
+        light
+      />
       <MDBox
         width="calc(100% - 2rem)"
         minHeight="100vh"
@@ -61,6 +53,7 @@ function CoverLayout({ coverHeight, image, children }) {
           width="calc(100% - 2rem)"
           mx="auto"
         >
+          
           <Grid container spacing={1} justifyContent="center">
             <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
               {children}
@@ -73,15 +66,15 @@ function CoverLayout({ coverHeight, image, children }) {
 }
 
 // Setting default props for the CoverLayout
-CoverLayout.defaultProps = {
+CoverLayoutMonitor.defaultProps = {
   coverHeight: "25vh",
 };
 
 // Typechecking props for the CoverLayout
-CoverLayout.propTypes = {
+CoverLayoutMonitor.propTypes = {
   coverHeight: PropTypes.string,
   image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default CoverLayout;
+export default CoverLayoutMonitor;
