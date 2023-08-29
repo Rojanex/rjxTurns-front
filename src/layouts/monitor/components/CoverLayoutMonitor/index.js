@@ -2,29 +2,28 @@
 import PropTypes from "prop-types";
 
 //assets
-import logo from "assets/images/logo-ct.png"
+import logo from "assets/images/logo-ct.png";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
+import { Card, Table, TableRow, TableCell } from "@mui/material";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
-// import MDTypography from "components/MDTypography";
+import MDTypography from "components/MDTypography";
 
 // Material Dashboard 2 React example components
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
-
+import axios from "axios";
+import io from "socket.io-client";
+import { useState, useEffect } from "react";
 
 function CoverLayoutMonitor({ children }) {
   return (
     <PageLayout>
-      <DefaultNavbar
-        logoCompany={logo}
-        transparent
-        light
-      />
+      <DefaultNavbar logoCompany={logo} transparent light />
       <MDBox
         width="calc(100% - 2rem)"
         minHeight="100vh"
@@ -38,28 +37,14 @@ function CoverLayoutMonitor({ children }) {
           overflow: "hidden",
         }}
       >
-        <MDBox
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: "1rem",
-            right: "1rem",
-            bottom: 0,
-          }}
-        />
-        <MDBox
-          mt={{ xs: -20, lg: -18 }}
-          px={1}
-          width="calc(100% - 2rem)"
-          mx="auto"
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          style={{ minHeight: "calc(100vh - 90px)", paddingTop: "180px" }} // Adjust '64px' to the actual height of your navbar
         >
-          
-          <Grid container spacing={1} justifyContent="center">
-            <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
-              {children}
-            </Grid>
-          </Grid>
-        </MDBox>
+          {children}
+        </Grid>
       </MDBox>
     </PageLayout>
   );
@@ -73,7 +58,7 @@ CoverLayoutMonitor.defaultProps = {
 // Typechecking props for the CoverLayout
 CoverLayoutMonitor.propTypes = {
   coverHeight: PropTypes.string,
-  image: PropTypes.string.isRequired,
+  //image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

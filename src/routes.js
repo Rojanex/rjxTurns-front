@@ -45,6 +45,7 @@ import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import Monitor from "layouts/monitor/monitor"
+import VirtualButton from "layouts/virtual_button/index"
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -66,30 +67,6 @@ const routes = [
     route: "/tables",
     component: <Tables />,
   },
-  // {
-  //   type: "collapse",
-  //   name: "Billing",
-  //   key: "billing",
-  //   icon: <Icon fontSize="small">receipt_long</Icon>,
-  //   route: "/billing",
-  //   component: <Billing />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "RTL",
-  //   key: "rtl",
-  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-  //   route: "/rtl",
-  //   component: <RTL />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Notifications",
-  //   key: "notifications",
-  //   icon: <Icon fontSize="small">notifications</Icon>,
-  //   route: "/notifications",
-  //   component: <Notifications />,
-  // },
   {
     type: "collapse",
     name: "Profile",
@@ -117,10 +94,18 @@ const routes = [
   {
     type: "collapse",
     name: "Monitor",
-    key: "sign-up",
+    key: "monitor",
     icon: <Icon fontSize="small">donut_large</Icon>,
     route: "/monitor",
     component: <Monitor />,
+  },
+  {
+    type: "title",
+    name: "Button",
+    key: "button",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/control-de-filas",
+    component: <VirtualButton />,
   },
 ];
 

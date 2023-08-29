@@ -32,39 +32,7 @@ import { useMaterialUIController } from "context";
 function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCompany, children }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
-
-  const [mobileNavbar, setMobileNavbar] = useState(false);
-  const [mobileView, setMobileView] = useState(false);
-
-  const openMobileNavbar = ({ currentTarget }) =>
-    setMobileNavbar(currentTarget.parentNode);
-  const closeMobileNavbar = () => setMobileNavbar(false);
-
-  useEffect(() => {
-    // A function that sets the display state for the DefaultNavbarMobile.
-    function displayMobileNavbar() {
-      if (window.innerWidth < breakpoints.values.lg) {
-        setMobileView(true);
-        setMobileNavbar(false);
-      } else {
-        setMobileView(false);
-        setMobileNavbar(false);
-      }
-    }
-
-    /** 
-     The event listener that's calling the displayMobileNavbar function when 
-     resizing the window.
-    */
-    window.addEventListener("resize", displayMobileNavbar);
-
-    // Call the displayMobileNavbar function to set the state with the initial value.
-    displayMobileNavbar();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", displayMobileNavbar);
-  }, []);
-
+  
   return (
     <Container>
       <MDBox
@@ -107,7 +75,6 @@ function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCom
         {title && <>
           <MDBox
             component={Link}
-            to="/"
             py={transparent ? 1.5 : 0.75}
             lineHeight={1}
             pl={{ xs: 0, lg: 1 }}
@@ -133,11 +100,11 @@ function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCom
               <DefaultNavbarLink
                 icon="donut_large"
                 name="Monitor"
-                route="/dashboard"
+                route="/monitor"
                 light={light}
               />
             </MDBox>
-          </>
+          </> 
         )}
         {action &&
           (action.type === "internal" ? (
@@ -168,21 +135,7 @@ function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCom
               </MDButton>
             </MDBox>
           ))}
-        <MDBox
-          display={{ xs: "inline-block", lg: "none" }}
-          lineHeight={0}
-          py={1.5}
-          pl={1.5}
-          color="inherit"
-          sx={{ cursor: "pointer" }}
-          onClick={openMobileNavbar}
-        >
-          <Icon fontSize="default">{mobileNavbar ? "close" : "menu"}</Icon>
-        </MDBox>
       </MDBox>
-      {mobileView && (
-        <DefaultNavbarMobile open={mobileNavbar} close={closeMobileNavbar} />
-      )}
     </Container>
   );
 }
