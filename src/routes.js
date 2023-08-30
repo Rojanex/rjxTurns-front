@@ -46,6 +46,8 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import Monitor from "layouts/monitor/monitor"
 import VirtualButton from "layouts/virtual_button/index"
+import TomaTurno from "layouts/toma-tu-turno/TomaTurno"
+import IngreseNombre from "layouts/toma-tu-turno/IngreseNombre";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -106,6 +108,22 @@ const routes = [
     icon: <Icon fontSize="small">button</Icon>,
     route: "/control-de-filas",
     component: <VirtualButton />,
+  },
+  {
+    type: "title",
+    name: "Turno",
+    key: "toma-tu-turno",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/toma-tu-turno",
+    component: <TomaTurno />,
+  },
+  {
+    type: "title",
+    name: "Turno",
+    key: "ingrese",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/ingrese",
+    component: <IngreseNombre />,
   },
 ];
 

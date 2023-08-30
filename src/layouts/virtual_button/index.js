@@ -159,11 +159,15 @@ function Cover({ transparent, light, action }) {
             </TableCell>
           </Table>
         ))}
-          <Button variant="" color="primary" onClick={() => setIsNextTurnClicked(true)} disabled={isNextTurnClicked} sx={{ mt: 1, mb: 1}}>
+          {/* <Button variant="" color="primary" onClick={() => setIsNextTurnClicked(true)} disabled={isNextTurnClicked} sx={{ mt: 1, mb: 1}}> */}
+
+          <Button variant="" color="primary" sx={{ mt: 1, mb: 1}}>
             <MDTypography variant="text" fontWeight="small" color="black" />{" "}
             Siguiente Turno
           </Button>
-          <Button variant="contained" sx={{ color: "orange" }} onClick={() => setIsNextTurnClicked(false)}>
+          {/* <Button variant="contained" sx={{ color: "orange" }} onClick={() => setIsNextTurnClicked(false)}> */}
+
+          <Button variant="contained" sx={{ color: "orange" }} >
             Finalizar Atendido
           </Button>
         </Card>
