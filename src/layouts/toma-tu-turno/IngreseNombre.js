@@ -8,7 +8,15 @@ import Checkbox from "@mui/material/Checkbox";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import { Grid, Table, TableRow, TableCell, Box, Button, TextField } from "@mui/material";
+import {
+  Grid,
+  Table,
+  TableRow,
+  TableCell,
+  Box,
+  Button,
+  TextField,
+} from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 
 // Authentication layout components
@@ -88,21 +96,21 @@ function IngreseNombre({ transparent, light, action }) {
       }}
     >
       <Box xs={{ display: "flex", flexDirection: "row" }}>
-      <TextField
-        variant="outlined"
-        size="large"
-        sx={{
-          mt: 1,
-          mb: 1,
-          backgroundColor: "#FFFFFF", // replace with your desired blue color
-          color: "#FFFFFF", // text color
-          "&:hover": {
-            backgroundColor: "#0069d9", // darker blue on hover, replace with your desired color
-          },
-          padding: '40px 80px',
-          fontSize: '50px'
-        }}
-      />
+        <TextField
+          variant="outlined"
+          size="large"
+          sx={{
+            mt: 1,
+            mb: 1,
+            backgroundColor: "#FFFFFF", // white background color
+            color: "#000000", // black text color
+            // &:hover: {
+            //   backgroundColor: "#0069d9", // removed hover effect
+            // },
+            padding: "20px 50px",
+            fontSize: "50px",
+          }}
+        />
       </Box>
     </CoverLayoutMonitor>
   );
