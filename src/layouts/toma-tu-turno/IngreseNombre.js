@@ -220,9 +220,19 @@ function IngreseNombre() {
       </MDBox>
       <hr style={{ margin: '1rem 0' }} />
       <MDBox sx={{ display: "flex", justifyContent: "center" }}>
+        <Button
+          variant="contained"
+          sx={{ mt: 5, mb: 1, fontSize: "1.7rem", color: "#FFFFFF" }}
+          onClick={handleButtonClickNormal}
+        >
+          <MDTypography variant="" fontWeight="" sx={{ color: "black" }} />
+          Atencion General
+        </Button>
+      </MDBox>
+      <MDBox sx={{ display: "flex", justifyContent: "center" }}>
         <BlueButton
           variant=""
-          sx={{ mt: 5, mb: 1, fontSize: "1.7rem", color: "black" }}
+          sx={{ mt: 5, mb: 5, fontSize: "1.7rem", color: "black" }}
           onClick={handleButtonClickPriority}
         >
          
@@ -231,16 +241,6 @@ function IngreseNombre() {
           <MDTypography variant="" fontWeight="" sx={{ color: "black", ml: 1}} />{" "}
           Atencion Prioritaria
         </BlueButton>
-      </MDBox>
-      <MDBox sx={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          variant="contained"
-          sx={{ mt: 5, mb: 5, fontSize: "1.7rem", color: "#FFFFFF" }}
-          onClick={handleButtonClickNormal}
-        >
-          <MDTypography variant="" fontWeight="" sx={{ color: "black" }} />
-          Atencion General
-        </Button>
       </MDBox>
       <hr style={{ margin: '1rem 0' }} />
       <MDBox sx={{ display: "flex", justifyContent: "center" }}>
