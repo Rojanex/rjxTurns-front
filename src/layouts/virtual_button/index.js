@@ -17,12 +17,39 @@ import { useState, useEffect } from "react";
 
 // Images
 
-function Cover({ transparent, light, action }) {
+function Cover({ transparent, light, action, modulo }) {
   const [Queues, setQueues] = useState([]);
   const [apiData, setApiData] = useState([]);
   const [removedElement, setRemovedElement] = useState([]);
   const [isNextTurnClicked, setIsNextTurnClicked] = useState(false);
   const globalIP = process.env.REACT_APP_GLOBAL_IP;
+
+  const handleButtonClickNext = ({queue_name}) => {
+    const module_api = modulo
+    setIsNextTurnClicked(true)
+    axios
+      .get(`http://${globalIP}/queue/call_element?module=${module_api}&queue_name=${queue_name}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error removing element to API:", error);
+      });
+    
+  };
+
+  const handleButtonClickEnd = ({id_element}) => {
+    setIsNextTurnClicked(false)
+    axios
+      .get(`http://${globalIP}/queue/end_element?id_element=${id_element}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error ending element to API:", error);
+      });
+    
+  };
 
   useEffect(() => {
     const socket = io(`http://${globalIP}`, { transports: ["polling"] });
@@ -56,6 +83,20 @@ function Cover({ transparent, light, action }) {
     socket.on("element_removed", function (msg) {
       // Update your table in the UI here
       setRemovedElement(msg.removedElement)
+      axios
+        .get(`http://${globalIP}/data/in_list_elements`)
+        .then((response) => {
+          const data = response.data.data;
+          setApiData(data);
+          console.log(typeof data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data from API:", error);
+        });
+    });
+
+    socket.on("elementAdded", function () {
+      // Update your table in the UI here
       axios
         .get(`http://${globalIP}/data/in_list_elements`)
         .then((response) => {
@@ -159,15 +200,14 @@ function Cover({ transparent, light, action }) {
             </TableCell>
           </Table>
         ))}
-          {/* <Button variant="" color="primary" onClick={() => setIsNextTurnClicked(true)} disabled={isNextTurnClicked} sx={{ mt: 1, mb: 1}}> */}
+          <Button variant="" color="primary" onClick={() => handleButtonClickNext({queue_name:item.nombre})} disabled={isNextTurnClicked} sx={{ mt: 1, mb: 1}}>
 
-          <Button variant="" color="primary" sx={{ mt: 1, mb: 1}}>
+          {/* <Button variant="" color="primary" sx={{ mt: 1, mb: 1}} */}
             <MDTypography variant="text" fontWeight="small" color="black" />{" "}
             Siguiente Turno
           </Button>
-          {/* <Button variant="contained" sx={{ color: "orange" }} onClick={() => setIsNextTurnClicked(false)}> */}
-
-          <Button variant="contained" sx={{ color: "orange" }} >
+          <Button variant="contained" sx={{ color: "orange" }} onClick={() => handleButtonClickEnd({id_element:removedElement[2]})}>
+          {/* <Button variant="contained" sx={{ color: "orange" }} > */}
             Finalizar Atendido
           </Button>
         </Card>

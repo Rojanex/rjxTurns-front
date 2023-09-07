@@ -106,8 +106,8 @@ const routes = [
     name: "Button",
     key: "button",
     icon: <Icon fontSize="small">button</Icon>,
-    route: "/control-de-filas",
-    component: <VirtualButton />,
+    route: "/control-de-filas/mod1",
+    component: <VirtualButton modulo="1" />,
   },
   {
     type: "title",
