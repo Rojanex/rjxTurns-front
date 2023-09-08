@@ -9,6 +9,7 @@ COPY package.json ./
 # install app dependencies and ignore package-lock.json if in case its present
 RUN npm install --no-package-lock
 EXPOSE 3000
+ENV WATCHPACK_POLLING=true
 # add all code to app folder
 ADD . ./
 # start app
