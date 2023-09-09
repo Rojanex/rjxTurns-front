@@ -115,7 +115,7 @@ function Cover({ transparent, light, action }) {
                   mt={2}
                   mb={1}
                   mx={1}
-                  style={{ fontSize: "2rem" }}
+                  style={{ fontSize: "4rem" }}
                 >
                   Turno
                 </MDTypography>
@@ -128,7 +128,7 @@ function Cover({ transparent, light, action }) {
                   mt={2}
                   mb={1}
                   mx={1}
-                  style={{ fontSize: "2rem" }}
+                  style={{ fontSize: "4rem" }}
                 >
                   Modulo
                 </MDTypography>
@@ -141,7 +141,7 @@ function Cover({ transparent, light, action }) {
                   mt={2}
                   mb={1}
                   mx={9}
-                  style={{ fontSize: "2rem" }}
+                  style={{ fontSize: "4rem" }}
                 >
                   Nombre
                 </MDTypography>
@@ -163,7 +163,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={5}
-                    style={{ fontSize: "4rem" }}
+                    style={{ fontSize: "5rem" }}
                   >
                     {" "}
                     {item.turno}{" "}
@@ -177,7 +177,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={5}
-                    style={{ fontSize: "4rem" }}
+                    style={{ fontSize: "5rem" }}
                   >
                     {" "}
                     {item.modulo}{" "}
@@ -191,7 +191,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={9}
-                    style={{ fontSize: "4rem" }}
+                    style={{ fontSize: "5rem" }}
                   >
                     {" "}
                     {item.nombre}{" "}
