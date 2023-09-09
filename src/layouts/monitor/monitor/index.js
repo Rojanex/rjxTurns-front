@@ -27,6 +27,26 @@ function Cover({ transparent, light, action }) {
 
   useEffect(() => {
     const socket = io(`http://${globalIP}`, { transports: ["polling"] });
+    const handleElementRemoved = (msg) => {
+
+      var audio = new Audio(Alarm);
+      
+      var playPromise = audio.play();
+ 
+      if (playPromise !== undefined) {
+        playPromise.then(_ => {
+          audio.loop = true;
+          setTimeout(function () {
+            audio.pause();
+            audio.currentTime = 0;
+          }, 15000);
+        })
+        .catch(error => {
+          // Auto-play was prevented
+          // Show paused UI.
+        });
+      }
+    };
     socket.on("connect", () => {
       console.log("Socket connected");
     });
@@ -45,6 +65,7 @@ function Cover({ transparent, light, action }) {
     socket.on("element_removed", function (msg) {
       // Update your table in the UI here
       setHighlight(true);
+      handleElementRemoved()
 
       // Change row color back to white after 10 seconds
       setTimeout(() => {
@@ -53,14 +74,7 @@ function Cover({ transparent, light, action }) {
 
       console.log("received message: " + msg.message);
       console.log("removed element: ", msg.removedElement);
-      var audio = new Audio(Alarm);
-      audio.play();
-      audio.loop = true;
-      // Stop the audio after 10 seconds
-      setTimeout(function () {
-        audio.pause();
-        audio.currentTime = 0;
-      }, 10000);
+      
       axios
         .get(`http://${globalIP}/data/attend_elements`)
         .then((response) => {
@@ -149,7 +163,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={5}
-                    style={{ fontSize: "3rem" }}
+                    style={{ fontSize: "4rem" }}
                   >
                     {" "}
                     {item.turno}{" "}
@@ -163,7 +177,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={5}
-                    style={{ fontSize: "3rem" }}
+                    style={{ fontSize: "4rem" }}
                   >
                     {" "}
                     {item.modulo}{" "}
@@ -177,7 +191,7 @@ function Cover({ transparent, light, action }) {
                     mt={2}
                     mb={1}
                     mx={9}
-                    style={{ fontSize: "3rem" }}
+                    style={{ fontSize: "4rem" }}
                   >
                     {" "}
                     {item.nombre}{" "}
