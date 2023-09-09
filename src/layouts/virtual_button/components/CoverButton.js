@@ -20,11 +20,12 @@ import axios from "axios";
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
 
-function CoverLayoutButton({ children }) {
+function CoverLayoutButton({ children, modulo }) {
   return (
     <PageLayout>
       <DefaultNavbar title = "Sistema de Gestion de Turnos"
-        monitorLink />
+        monitorLink
+        modulo={modulo} />
       <MDBox
         width="calc(100% - 2rem)"
         minHeight="100vh"

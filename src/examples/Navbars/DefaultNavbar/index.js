@@ -29,7 +29,7 @@ import breakpoints from "assets/theme/base/breakpoints";
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
 
-function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCompany, children }) {
+function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCompany, modulo, children }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
   
@@ -71,6 +71,23 @@ function DefaultNavbar({ transparent, light, action, title, monitorLink, logoCom
             <Clock />
           </MDBox>
         </> } 
+
+        {modulo && <>
+          <MDBox
+            component={Link}
+            py={transparent ? 1.5 : 0.75}
+            lineHeight={1}
+            pl={{ xs: 0, lg: 1 }}
+          >
+            <MDTypography
+              variant="button"
+              fontWeight="bold"
+              color={light ? "white" : "dark"}
+            >
+              Modulo {modulo}
+            </MDTypography>
+          </MDBox>
+        </>}
 
         {title && <>
           <MDBox

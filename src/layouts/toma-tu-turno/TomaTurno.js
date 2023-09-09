@@ -51,16 +51,16 @@ function TomaTurno({ transparent, light, action }) {
         setHighlight(false);
       }, 10000);
 
-      console.log("received message: " + msg.message);
-      console.log("removed element: ", msg.removedElement);
-      var audio = new Audio(Alarm);
-      audio.play();
-      audio.loop = true;
-      // Stop the audio after 10 seconds
-      setTimeout(function () {
-        audio.pause();
-        audio.currentTime = 0;
-      }, 10000);
+      // console.log("received message: " + msg.message);
+      // console.log("removed element: ", msg.removedElement);
+      // var audio = new Audio(Alarm);
+      // audio.play();
+      // audio.loop = true;
+      // // Stop the audio after 10 seconds
+      // setTimeout(function () {
+      //   audio.pause();
+      //   audio.currentTime = 0;
+      // }, 10000);
       axios
         .get(`http://${globalIP}/data/attend_elements`)
         .then((response) => {
