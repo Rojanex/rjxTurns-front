@@ -134,6 +134,31 @@ const routes = [
     component: <VirtualButton modulo="4" />,
   },
   {
+    type: "title5",
+    name: "Button5",
+    key: "mod5",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/control-de-filas5",
+    component: <VirtualButton modulo="5" />,
+  },
+  {
+    type: "title6",
+    name: "Button6",
+    key: "mod6",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/control-de-filas6",
+    component: <VirtualButton modulo="6" />,
+  },
+  {
+    type: "title7",
+    name: "Button7",
+    key: "mod7",
+    icon: <Icon fontSize="small">button</Icon>,
+    route: "/control-de-filas7",
+    component: <VirtualButton modulo="7" />,
+  },
+
+  {
     type: "title",
     name: "Turno",
     key: "toma-tu-turno",
