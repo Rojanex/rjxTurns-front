@@ -21,6 +21,9 @@ function VirtualButton({ transparent, light, action, modulo }) {
   const [removedElement2, setRemovedElement2] = useState([]);
   const [removedElement3, setRemovedElement3] = useState([]);
   const [removedElement4, setRemovedElement4] = useState([]);
+  const [removedElement5, setRemovedElement5] = useState([]);
+  const [removedElement6, setRemovedElement6] = useState([]);
+  const [removedElement7, setRemovedElement7] = useState([]);
   const [isNextTurnClicked, setIsNextTurnClicked] = useState(false);
   const globalIP = process.env.REACT_APP_GLOBAL_IP;
 
@@ -96,6 +99,15 @@ function VirtualButton({ transparent, light, action, modulo }) {
           break;
         case "4":
           setRemovedElement4(msg.removedElement);
+          break;
+        case "5":
+          setRemovedElement5(msg.removedElement);
+          break;
+        case "6":
+          setRemovedElement6(msg.removedElement);
+          break;
+        case "7":
+          setRemovedElement7(msg.removedElement);
           break;
         default:
           console.error('Invalid module:', msg.modulo);
@@ -174,6 +186,12 @@ function VirtualButton({ transparent, light, action, modulo }) {
               ? removedElement3[1]
               : modulo_api === "4"
               ? removedElement4[1]
+              : modulo_api === "5"
+              ? removedElement5[1]
+              : modulo_api === "6"
+              ? removedElement6[1]
+              : modulo_api === "7"
+              ? removedElement7[1]
               : null}
           </MDTypography>
           <Table sx={{ maxWidth: "100%", margin: "auto" }}>

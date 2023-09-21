@@ -5,12 +5,12 @@ import MDTypography from "components/MDTypography";
 import { Button} from "@mui/material";
 
 
-function ConfirmComponent({priority, fila, name, globalIP}) {
+function ConfirmComponent({priority, fila, name, globalIP, cc}) {
     const navigate = useNavigate();
     
     const handleButtonClickSummit = (priority, fila, name) => {
       axios
-        .get(`http://${globalIP}/queue/add_element?queue_name=${fila}&name=${name}&priority=${priority}`)
+        .get(`http://${globalIP}/queue/add_element?queue_name=${fila}&name=${name}&priority=${priority}&cc=${cc}`)
         .then((response) => {
           console.log(response);
           navigate('/toma-tu-turno');

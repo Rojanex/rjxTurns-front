@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 import MDBox from "components/MDBox";
 import { useNavigate } from "react-router-dom";
 
-const NameStep = ({ name, setName, setStep }) => {
+const NameStep = ({ name, setName, setStep, cc, setCC }) => {
   const navigate = useNavigate();
   const [isNameValid, setIsNameValid] = useState(true);
 
@@ -14,7 +14,8 @@ const NameStep = ({ name, setName, setStep }) => {
       setIsNameValid(false);
     } else {
       setIsNameValid(true);
-      setStep(2);
+      setStep(3);
+      setCC("-")
     }
   };
 
