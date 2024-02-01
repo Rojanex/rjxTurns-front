@@ -208,7 +208,7 @@ function Cover({ transparent, light, action }) {
         sx={{ width: 400, flex: 1, height: "75vh", objectFit: "cover" }}
         src="/demo_video.mp4"
         title="Video"
-        controls
+        // controls
         autoPlay
         muted
         loop
